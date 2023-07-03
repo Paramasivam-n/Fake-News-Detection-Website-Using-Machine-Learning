@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet'>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Fake News Detection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+
+/* Responsive Design */
+
+body{
+  background-color: white;
+  font-family: poppins;
+}
+
+#navigation{
+  background-color: teal;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.3) inset;
+}
+
+/*            */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  max-width: 80%;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .video-container {
+    padding-bottom: 0;
+  }
+
+  .content {
+    position: static;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .content p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    position: static;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .content h1 {
+    margin-bottom: 10px;
+  }
+}
+
+
+/* section 1 cards  */
+
+.icon{
+  display:block;
+  margin: auto;
+}
+
+
+.section1 .card{
+  border:0;
+}
+
+
+/* section2  */
+
+.section2{
+  margin:100px 0px;
+}
+
+.pic2{
+  width:75rem;
+}
+
+/* text styling  */
+
+.color{
+  color: teal;
+  font-weight: bolder;
+}
+
+.card_para{
+  font-size:0.8rem;
+}
+
+/* anchor  */
+
+a{
+  font-size: medium;
+}
+
+a:hover{
+
+  background: rgb(26, 187, 196);
+  color: white;
+  transition: .6s;
+  text-decoration: none;
+}
+
+/* footer   */
+
+footer{
+  background-color:teal;
+}
+
+.ftr_para{
+  font-size: 1rem;
+}
+
+
+/*  scroll effect  */
+
+#about, #service, #my-section, #home{
+  scroll-behavior: smooth ;
+}
+    </style>
+  </head>
+  <body>
+    <!--Navbar Start-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top auto-hiding-navbar" id="navigation">
+      <div class="container">
+          <a class="navbar-brand fw-bold fs-4" href="#">VeracityVerse</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto fw-bold">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#service">Service</a>
+              </li>
+              <li class="nav-item">
+                <!--<a class="nav-link" id="login-link" href="#my-section">Login</a>-->
+                <div id="login-button">
+                  <a class="nav-link" href="#my-section" onclick="login()">Login</a>
+                </div>
+              </li>
+            </ul>
+        </div>
+
+
+      </div>
+    </nav>
+    <!--Navbar end-->
+
+    <div class="video-container" id="home">
+      <video src="static/video/3.mp4" autoplay loop muted></video>
+      <div class="content">
+        <h1 class="mb-3">Fake News Detection</h1>
+        <p>In today's age of digital media, misinformation and fake news can spread rapidly and have serious consequences. Our website is dedicated to providing accurate and reliable information to help combat the spread of fake news.</p>
+      </div>
+    </div>
+
+
+    <!-- Hero section-->
+
+    <div class="container">
+      <div class="hero">
+        <div class="row mt-2">
+          <div class="col align-items-center" id="my-section">
+            {% block content %}
+            {% endblock %}
+          </div>
+          <!--<div class="col">
+             <img src="static/img/8.jpg" class="pic1 img-fluid" >
+          </div>-->
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------------------------->
+
+    <!-------------------------section 1-------------------------->
+
+    <div class="container" id="about">
+
+      <div class="section2 row mb-5">
+        <div class="col">
+          <img src="static/img/6.jpg" class="pic2 img-fluid">
+        </div>
+        <div class="col align-items-center pt-4">
+
+          <h3 class="color pt-5">About Us</h3>
+          <p class="">Welcome to Veracity Verse, your go-to source for fact-checking and debunking fake news. Our mission is to provide accurate and reliable information to help people navigate the vast and often confusing landscape of online news.
+
+We are a team of experienced journalists and researchers who are dedicated to promoting truth and transparency in media. Our website utilizes the latest in artificial intelligence and machine learning to analyze news articles, social media posts, and other online content to determine their accuracy and legitimacy.
+
+Our team is committed to upholding the highest standards of journalistic integrity and impartiality. We do not have any political affiliations or biases and are dedicated to presenting the facts as objectively and transparently as possible.</p>
+          <!--<button type="button" class="btn btn-dark rounded-pill"></button> -->
+        </div>
+      </div>
+
+    </div>
+
+
+    <!----------------------------------------------------------->
+
+    <!----------------------------section2 cards---------------------------------->
+    <div class="container" id="service">
+      <div class="section1 mb-5">
+
+        <div class="row cards">
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card">
+              <div class="card-body text-center">
+                <img src="static/img/3.jpg" class="icon img-fluid mb-3">
+                <h class="fw-bold">
+                    News Source Evaluation
+                </h>
+                <p class="mt-2">The website could evaluate the reliability and accuracy of news sources using machine learning algorithms. It could use a combination of natural language processing and sentiment analysis techniques to analyze news articles and identify patterns of bias or misinformation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card">
+              <div class="card-body text-center">
+                <img src="static/img/4.jpg" class="icon img-fluid mb-3">
+
+                <h class="fw-bold">
+                    Contant Analysis
+                </h>
+                <p class="mt-2">The website could analyze the content of news articles, social media posts, and other sources for signs of fake news, such as sensational headlines, unsupported claims, and misleading statistics.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card">
+              <div class="card-body text-center">
+                <img src="static/img/8.jpg" class="icon img-fluid mb-3">
+
+                <h class="fw-bold">
+                    Fact Checking
+                </h>
+                <p class="mt-2">The website could provide fact-checking services for individual claims or statements made in news articles or social media posts. It could use machine learning algorithms to analyze the evidence and sources cited to verify the accuracy of the claim.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!---------------------------------------------------------->
+
+
+
+    <!--------------------------section3-------------------------->
+
+    <section class="container">
+      <h4 class="fw-bold">Our Team</h4>
+      <p class="text-black mb-3">We are students of Nehru Institute of Engineering and Technology and in our group</p>
+      <!--------cards--------->
+      <div class="row cards">
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="card">
+            <div class="card-body">
+              <img src="static/img/7.jpg" class="img-fluid">
+              <h class="d-block fw-bold text-black py-3">
+                  Paramasivam N
+              </h>
+              <p class="card_para">BE.Computer Science and Engineering Student</p>
+              <a href="#" class="text-decoration-none text-secondary">More Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="card">
+            <div class="card-body">
+              <img src="static/img/7.jpg" class="img-fluid">
+              <h class="d-block fw-bold text-black py-3">
+                  Linguraj K
+              </h>
+              <p class="card_para">BE.Computer Science and Engineering Student</p>
+              <a href="#" class="text-decoration-none text-secondary">More Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="card">
+            <div class="card-body">
+              <img src="static/img/7.jpg" class="img-fluid">
+              <h class="d-block fw-bold text-black py-3">
+                  Muthukumar S
+              </h>
+              <p class="card_para">BE.Computer Science and Engineering Student</p>
+              <a href="#" class="text-decoration-none text-secondary">More Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!---------------------------------------------------------->
+
+    <!---------------------------footer------------------------->
+
+    <footer class="mt-4">
+      <div class="container p-3">
+        <!--<h3 class="d-flex justify-content-center text-white fw-bold">
+            CONTACT ME
+        </h3> -->
+        <p class="ftr_para text-white text-center pt-4">
+            Don't fall prey to fake news. Verify before you share. Our mission is to promote truth and accuracy in the news. Join us in the fight against misinformation.
+        </p>
+      </div>
+    </footer>
+
+    <!---------------------------------------------------------->
+
+
+
+
+
+    <!-- Bootstrap js link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script>
+
+    function login() {
+    // your login code here
+    document.getElementById("login-button").innerHTML = '<a class="nav-link" href="#my-section" onclick="login()">Logout</a>';
+}
+
+function logout() {
+    // your logout code here
+    document.getElementById("login-button").innerHTML = '<a class="nav-link" href="#my-section" onclick="login()">Login</a>';
+}
+
+
+  // Get a reference to the section element
+  var section = document.getElementById("my-section");
+
+  // Scroll the browser window to the section with a smooth animation
+  section.scrollIntoView({ behavior: 'smooth' });
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+
+      <h1 style="margin-top:8%;">Home</h1>
+
+      <p>Welcome to our Fake News Detection webpage! Our mission is to help you distinguish between reliable and fake news sources, and to provide you with the tools and resources necessary to verify the news you consume.</p>
+
+      <a href="{{ url_for('predict') }}" class="btn-primary">Try Now</a>
+
+    </div>
+  </main>
+{% endblock %}

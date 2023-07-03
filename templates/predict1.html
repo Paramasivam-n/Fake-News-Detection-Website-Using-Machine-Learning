@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main>
+	<div class="container">
+		<center class="mt-5">
+			<h1 style="margin:8%;">Fake News Detector</h1>
+			<form action="{{ url_for('predict') }}" method="POST">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+				<label for="url">Enter the URL of the article to be checked:</label>
+				<input type="text" name="url" id="url" placeholder="Enter the URL here">
+				<input type="submit" value="Check">
+			</form>
+			{% if prediction_text %}
+			<p class="prediction-text">{{ prediction_text }}</p>
+			{% endif %}
+		</center>
+	</div>
+</main>
+{% endblock %}
+
